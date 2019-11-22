@@ -11,7 +11,9 @@ public class OpensourcecmsConfiguration {
 
     public OpensourcecmsConfiguration() {
         Configuration.reportsFolder = "target/reports/tests";
-        Configuration.startMaximized = false;
+        Configuration.startMaximized = true;
+        Configuration.headless = true;
+        Configuration.timeout = 8000;
     }
 
     @Value("${url.web:https://s1.demo.opensourcecms.com/wordpress/wp-login.php}")
