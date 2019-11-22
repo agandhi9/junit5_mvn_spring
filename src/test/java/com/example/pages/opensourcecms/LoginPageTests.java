@@ -6,6 +6,7 @@ import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,8 +34,8 @@ public class LoginPageTests extends BaseTests {
     @Test
     @DisplayName("Log in as correct user")
     @Step("Step: Log in as correct user")
+    @Tag("opensourcecms")
     void loginAsCorrectUser() {
-
         loginForm.logIn();
         assertTrue(loginForm.isDashboardPageLoaded(), "OpenSorceCms Dashboard is not loaded....");
     }
