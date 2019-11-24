@@ -15,7 +15,7 @@ public class Dashboard {
         return avatar;
     }
 
-    public boolean isDashboardPageLoaded() {
+    public boolean checkUserLogIn() {
         return avatar.shouldBe(Condition.visible).isDisplayed();
     }
 

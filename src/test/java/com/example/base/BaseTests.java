@@ -19,7 +19,7 @@ public class BaseTests {
     static final Logger LOGGER = LoggerFactory.getLogger(BaseTests.class);
 
     @BeforeAll
-    void beforeAll() {
+    static void beforeAll() {
         LOGGER.info("before all methods - once in a class ................ ");
     }
 
@@ -34,7 +34,7 @@ public class BaseTests {
     }
 
     @AfterAll
-    void afterAll() {
+    static void afterAll() {
         LOGGER.info("................ after all methods - once in a class ...");
     }
 
