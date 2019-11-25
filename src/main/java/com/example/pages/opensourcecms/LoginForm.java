@@ -2,8 +2,8 @@ package com.example.pages.opensourcecms;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import com.example.config.OpensourcecmsParams;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -17,7 +17,7 @@ public class LoginForm {
     private SelenideElement logInButton = $("#wp-submit");
 
     @Autowired
-    OpensourcecmsParams opensourcecmsParams;
+    BasePage basePage;
 
     @Autowired
     Dashboard dashboard;
@@ -26,10 +26,10 @@ public class LoginForm {
 
         loginForm.shouldBe(Condition.visible);
 
-        userName.val(opensourcecmsParams.getUsername()).pressTab();
-        userName.shouldHave(Condition.exactValue(opensourcecmsParams.getUsername()));
+        userName.val(basePage.getUsername()).pressTab();
+        userName.shouldHave(Condition.exactValue(basePage.getUsername()));
 
-        userPass.val(opensourcecmsParams.getPassword());
+        userPass.val(basePage.getPassword());
         userPass.shouldBe(Condition.not(Condition.empty));
 
         logInButton.click();

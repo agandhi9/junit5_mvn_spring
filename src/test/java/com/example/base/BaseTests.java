@@ -1,14 +1,13 @@
 package com.example.base;
 
-import com.codeborne.selenide.Configuration;
 import com.example.ext.WatcherExtension;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 
 
@@ -16,7 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @ExtendWith(WatcherExtension.class)
 public class BaseTests {
 
-    static final Logger LOGGER = LoggerFactory.getLogger(BaseTests.class);
+    private static final Logger LOGGER = LogManager.getLogger(BaseTests.class);
 
     @BeforeAll
     static void beforeAll() {
