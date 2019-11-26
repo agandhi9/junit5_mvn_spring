@@ -17,8 +17,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class LoginPageTests extends BaseTests {
 
-    private static final Logger LOGGER = LogManager.getLogger(LoginPageTests.class);
-
     @Autowired
     LoginForm loginForm;
 

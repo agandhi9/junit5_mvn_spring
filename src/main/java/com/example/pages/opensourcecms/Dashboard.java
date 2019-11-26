@@ -2,7 +2,6 @@ package com.example.pages.opensourcecms;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import static com.codeborne.selenide.Selenide.$;

@@ -1,33 +1,39 @@
 package com.example.integration;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.stereotype.Component;
 
-@Configuration
+@ConfigurationProperties()
 @PropertySource("classpath:application-integration.properties")
 public class IntegrationConfig {
 
-    @Value("${param1}")
-    private String paramOne;
+    private String paramone;
 
-    @Value("${param2}")
-    private String paramTwo;
+    private String paramtwo;
 
-    @Value("${param3}")
-    private String paramThree;
+    private String paramthree;
 
-    public String getParamOne() {
-        return paramOne;
+    public String getParamone() {
+        return paramone;
     }
 
-    public String getParamTwo() {
-        return paramTwo;
+    public void setParamone(String paramone) {
+        this.paramone = paramone;
     }
 
-    public String getParamThree() {
-        return paramThree;
+    public String getParamtwo() {
+        return paramtwo;
+    }
+
+    public void setParamtwo(String paramtwo) {
+        this.paramtwo = paramtwo;
+    }
+
+    public String getParamthree() {
+        return paramthree;
+    }
+
+    public void setParamthree(String paramthree) {
+        this.paramthree = paramthree;
     }
 }

@@ -1,13 +1,12 @@
 package com.example.pages.opensourcecms;
 
-import com.example.pages.opensourcecms.OpensourcecmsConfig;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Component;
-
 import static com.codeborne.selenide.Selenide.open;
 
 @Component
+@Import(OpensourcecmsConfig.class)
 public class BasePage {
 
     @Autowired
@@ -27,7 +26,7 @@ public class BasePage {
     }
 
     public String getPassword() {
-        return opensourcecmsConfig.getPassword();
+        return opensourcecmsConfig.getUserpass();
     }
 
 }

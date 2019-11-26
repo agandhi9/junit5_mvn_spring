@@ -15,7 +15,7 @@ public class WatcherExtension implements TestWatcher {
     @Override
     public void testDisabled(ExtensionContext extensionContext, Optional<String> optional) {
         Method testMethod = extensionContext.getRequiredTestMethod();
-        LOGGER.error("!!! TEST DISABLED !!! " + testMethod.getName());
+        LOGGER.info("!!! TEST DISABLED !!! " + testMethod.getName());
     }
 
     @Override

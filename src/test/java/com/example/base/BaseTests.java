@@ -7,6 +7,8 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.TestInfo;
+import org.junit.jupiter.api.TestReporter;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -16,15 +18,17 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class BaseTests {
 
     private static final Logger LOGGER = LogManager.getLogger(BaseTests.class);
-
+    
     @BeforeAll
     static void beforeAll() {
         LOGGER.info("before all methods - once in a class ................ ");
+      
     }
 
     @BeforeEach
-    void beforeEach() {
+    void beforeEach(TestInfo info, TestReporter reporter) {
         LOGGER.info("before each test method - in a class ................ ");
+        reporter.publishEntry(" [ " + info.getTags() + " ] " + info.getDisplayName());
     }
 
     @AfterEach
