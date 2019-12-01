@@ -1,4 +1,4 @@
-package com.example.pages.opensourcecms;
+package com.example.config;
 
 import com.example.config.SelenideConfig;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -7,10 +7,6 @@ import org.springframework.context.annotation.PropertySource;
 @ConfigurationProperties(prefix = "cms")
 @PropertySource("classpath:application-opensourcecms.properties")
 public class OpensourcecmsConfig {
-
-    public OpensourcecmsConfig() {
-        SelenideConfig.configCommon();
-    }
     
     private String url;
     private String username;

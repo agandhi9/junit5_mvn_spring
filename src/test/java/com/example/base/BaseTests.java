@@ -1,5 +1,8 @@
 package com.example.base;
 
+import com.example.config.IntegrationConfig;
+import com.example.config.OpensourcecmsConfig;
+import com.example.config.SelenideConfig;
 import com.example.ext.WatcherExtension;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,6 +13,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.api.TestReporter;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 
@@ -18,22 +22,17 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class BaseTests {
 
     private static final Logger LOGGER = LogManager.getLogger(BaseTests.class);
-    
+
+    @Autowired
+    protected OpensourcecmsConfig opensourcecmsConfig;
+
+    @Autowired
+    protected IntegrationConfig integrationConfig;
+
     @BeforeAll
     static void beforeAll() {
         LOGGER.info("before all methods - once in a class ................ ");
-      
-    }
-
-    @BeforeEach
-    void beforeEach(TestInfo info, TestReporter reporter) {
-        LOGGER.info("before each test method - in a class ................ ");
-        reporter.publishEntry(" [ " + info.getTags() + " ] " + info.getDisplayName());
-    }
-
-    @AfterEach
-    void afterEach() {
-        LOGGER.info("after each test method - in a class ................ ");
+        SelenideConfig.init();
     }
 
     @AfterAll

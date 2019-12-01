@@ -17,11 +17,21 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class LoginPageTests extends BaseTests {
 
-    @Autowired
-    LoginForm loginForm;
+    private static final Logger LOGGER = LogManager.getLogger(LoginPageTests.class);
+
+    @BeforeEach
+    void beforeEach(TestInfo info, TestReporter reporter) {
+        LOGGER.info("before each test method - in a class ................ ");
+        reporter.publishEntry(" [ " + info.getTags() + " ] " + info.getDisplayName());
+    }
+
+    @AfterEach
+    void afterEach() {
+        LOGGER.info("after each test method - in a class ................ ");
+    }
 
     @Autowired
-    BasePage basePage;
+    LoginForm loginForm;
 
     @Autowired
     HttpClientReponseUtil reponseUtil;
@@ -31,7 +41,7 @@ public class LoginPageTests extends BaseTests {
     @Story("Story: Check Https Status")
     @Order(1)
     void checkIfUrlIsActive() {
-        String url = basePage.opensourcecmsConfig.getUrl();
+        String url = opensourcecmsConfig.getUrl();
         assertEquals(HttpStatus.OK, reponseUtil.getStatusCode(url), HttpStatus.SERVICE_UNAVAILABLE.getReasonPhrase());
     }
 
@@ -40,9 +50,9 @@ public class LoginPageTests extends BaseTests {
     @Story("Story: Login story")
     @Order(2)
     void loginAsCorrectUser() {
-        basePage.openUrl();
-        loginForm.logIn();
-        assertTrue(loginForm.isDashboardPageLoaded(), "OpenSorceCms Dashboard is not loaded....");
+        loginForm.openUrl(opensourcecmsConfig.getUrl());
+        loginForm.logIn(opensourcecmsConfig.getUsername(), opensourcecmsConfig.getUserpass());
+        assertTrue(loginForm.isUserLoggedIn(), "OpenSorceCms Dashboard is not loaded....");
     }
 
 }

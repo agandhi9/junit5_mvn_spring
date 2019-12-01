@@ -14,4 +14,4 @@
             # Exclude tests which tagged with 'slow'
             # mvn -DexcludedGroups="slow"
     
-    # allure generate -c report\allure-results -o report\allure-report
+    # allure generate -c target\allure-results -o target\allure-report

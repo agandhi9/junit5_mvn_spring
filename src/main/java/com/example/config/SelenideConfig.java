@@ -8,7 +8,7 @@ import io.qameta.allure.selenide.AllureSelenide;
 
 public final class SelenideConfig {
 
-    public static void configCommon() {
+    public static void init() {
         Configuration.reportsFolder = "target/reports/tests";
         Configuration.startMaximized = true;
         Configuration.headless = false;
