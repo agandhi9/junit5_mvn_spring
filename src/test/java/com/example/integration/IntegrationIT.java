@@ -1,22 +1,19 @@
 package com.example.integration;
 
 import com.example.base.BaseTests;
-import com.example.config.IntegrationConfig;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @Epic("Epic: Context loads")
 @Story("Story: Context loads")
 @Tag("integration")
-//@Import(IntegrationConfig.class)
-class IntegrationTests extends BaseTests {
+class IntegrationIT extends BaseTests {
 
-	private static final Logger LOGGER = LogManager.getLogger(IntegrationTests.class);
+	private static final Logger LOGGER = LogManager.getLogger(IntegrationIT.class);
 
 	@BeforeEach
 	void beforeEach(TestInfo info, TestReporter reporter) {
@@ -32,7 +29,6 @@ class IntegrationTests extends BaseTests {
 	@Test
 	@DisplayName("Context loads test")
 	@Step("Step: Context loads test")
-	@Tag("context")
 	void contextLoads() {
 		LOGGER.info("Context loaded");
 		LOGGER.info(integrationConfig.getParamone());
